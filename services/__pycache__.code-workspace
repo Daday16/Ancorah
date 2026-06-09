@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../__pycache__"
+		},
+		{
+			"path": "../core"
+		},
+		{
+			"path": "../data"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../ui"
+		}
+	]
+}
