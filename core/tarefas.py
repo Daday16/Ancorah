@@ -29,11 +29,12 @@ def listar_tarefas():
 
     tarefas = cursor.fetchall()
 
-    conn.close()
-
     if not tarefas:
         print("Nenhuma tarefa.")
+        conn.close()
         return []
+
+    print("\n====== TAREFAS ======")
 
     for i, tarefa in enumerate(tarefas):
 
@@ -41,7 +42,27 @@ def listar_tarefas():
 
         print(f"\n{i} - {tarefa[1]} [{status}]")
 
+        cursor.execute(
+            """
+            SELECT titulo, concluida
+            FROM subtarefas
+            WHERE tarefa_id = %s
+            """,
+            (tarefa[0],)
+        )
+
+        subtarefas = cursor.fetchall()
+
+        for subtarefa in subtarefas:
+
+            status_sub = "✅" if subtarefa[1] else "⏳"
+
+            print(f"    └── {subtarefa[0]} [{status_sub}]")
+
+    conn.close()
+
     return tarefas
+
 def excluir_tarefa(indice):
 
     tarefas = listar_tarefas()

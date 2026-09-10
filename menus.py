@@ -13,7 +13,6 @@ def menu_principal():
         print("2 - Pomodoro")
         print("3 - Lembretes")
         print("4 - Assistente IA")
-        print("5 - Usuários")
         print("0 - Sair")
 
         opcao = input("Escolha: ")
@@ -33,10 +32,6 @@ def menu_principal():
         elif opcao == "4":
 
             iniciar_ia()
-
-        elif opcao == "5":
-
-            menu_usuarios()
 
         elif opcao == "0":
 

@@ -10,4 +10,4 @@ def tela_cadastro():
 
     cadastrar_usuario(nome, email)
 
-    print("\nCadastro realizado com sucesso!")
+    
